@@ -7,7 +7,7 @@ from oled import OLED
 from parallaxlcd import CharLCD
 
 sensor = dht.DHT22(Pin(14))
-#lcd = CharLCD()
+lcd = CharLCD()
 
 oled = OLED()
 oled.switchOn()
@@ -33,13 +33,13 @@ while True:
         message1 = ('TempC   : %3.1f C' % temp)
         message2 = ('TempF   : %3.1f F' %temp_f)
         message3 = ('Feuchte : %3.1f %%' %hum)
-        #message4 = ('Min: %3.1f %%   Max: %3.1f %% ' %min %max)
-        message4 = ('Mi:%3.1f ' %min + 'Mx: %3.1f' %max)
+        #message4_long = ('Min: %3.1f %%   Max: %3.1f %% ' %min %max)
+        message4 = ('Mn:%3.1f ' %min + 'Mx:%3.1f' %max)
         
-        # lcd.print(message1, 0)
-        # lcd.print(message2, 1)
-        # #lcd.print(message3, 2)
-        # lcd.print(message4, 2)
+        lcd.print(message1, 0)
+        lcd.print(message2, 1)
+        lcd.print(message3, 2)
+        lcd.print(message4, 3)
 
         oled.writeAt(message1, 0, 0)
         #oled.writeAt(message2, 0, 1)
